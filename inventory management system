@@ -9,6 +9,8 @@ class Product:
         self.quantity = quantity
 
     def update_stock(self, amount):
+        if amount < 0 and abs(amount) > self.quantity:
+            raise ValueError("Insufficient stock to reduce by the specified amount.")
         self.quantity += amount
 
 
